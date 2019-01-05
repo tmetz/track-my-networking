@@ -49,13 +49,11 @@ class UsersController < ApplicationController
     get "/users/:slug" do
         @user = User.find_by_slug(params[:slug])
         @persons = Person.where(["user_id = ?", @user.id])
-        erb :'/persons/index'
+        erb :'/users/show'
     end
 
     get "/failure" do
         erb :failure
     end
-
-
 
 end
