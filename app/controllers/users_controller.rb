@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     post '/signup' do
       if !params[:email].empty? && !params[:password].empty?
         @user = User.create(email: params[:email], password: params[:password])
-        session[:user_email] = @user.email
+        session[:user_id] = @user.id
         redirect "/persons"
       else
         redirect "/signup"
@@ -26,6 +26,16 @@ class UsersController < ApplicationController
         end
     end
 
+    post "/login" do
+        user = User.find_by(:email => params[:email])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect "/persons"
+        else
+            redirect "/failure"
+        end
+    end
+
     get '/logout' do
       if logged_in?
         session.clear
@@ -35,20 +45,11 @@ class UsersController < ApplicationController
       end
     end
 
+
     get "/users/:slug" do
         @user = User.find_by_slug(params[:slug])
         @persons = Person.where(["user_id = ?", @user.id])
         erb :'/persons/index'
-    end
-
-    post "/login" do
-        user = User.find_by(:username => params[:username])
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect "/persons"
-        else
-            redirect "/failure"
-        end
     end
 
     get "/failure" do
