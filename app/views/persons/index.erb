@@ -3,11 +3,12 @@
 </div>
 
 
-
+<% @persons.each do |person| %>
 <div class = "row">
-    <div class = "col-sm-3" style = "color:#6d4e3b;">Person 2's name</div>
-    <div class = "col-sm-9">Some info about the person</div>
+    <div class = "col-sm-3" style = "color:#6d4e3b;"><%= person.name %></div>
+    <div class = "col-sm-9"><%= person.phone %></div>
 </div>
+<% end %>
 
 
 
