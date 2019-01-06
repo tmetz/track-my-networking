@@ -81,6 +81,10 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
+  .row {
+    margin-bottom: 400px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -112,4 +116,12 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  .row {
+    margin-bottom: 400px;
+  }
+}
+
+.row {
+  margin-bottom: 400px;
 }
