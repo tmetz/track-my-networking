@@ -8,4 +8,5 @@ use Rack::MethodOverride
 
 # use other controllers here...
 use UsersController
+use PersonsController
 run ApplicationController
