@@ -13,4 +13,26 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      # only looks for the user if it's not already populated
+      # if it is populated, returns the cached result
+      # Otherwise looks for the user
+      # this is called memoization
+      @current_user ||= User.find(session[:user_id])
+    end
+
+    def unique_em?(email)
+      if User.find_by_email(email) == nil
+        return true
+      else
+        return false
+      end
+    end
+  end
+
 end
