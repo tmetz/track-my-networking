@@ -9,9 +9,8 @@ class PersonsController < ApplicationController
             else
               redirect '/login'
             end
-          else 
+        else 
             redirect '/login'
-          end
         end
     end
 end
