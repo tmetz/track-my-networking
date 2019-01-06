@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-      if !params[:email].empty? && !params[:password].empty?
+      if !params[:email].empty? && !params[:password].empty? && unique_em?(params[:email])
         @user = User.create(email: params[:email], password: params[:password])
         session[:user_id] = @user.id
         redirect "/persons"
@@ -63,6 +63,14 @@ class UsersController < ApplicationController
   
       def current_user
         User.find(session[:user_id])
+      end
+
+      def unique_em?(email)
+        if User.find_by_email(email) == nil
+          return true
+        else
+          return false
+        end
       end
     end
 
