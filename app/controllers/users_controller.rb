@@ -70,7 +70,11 @@ class UsersController < ApplicationController
       end
   
       def current_user
-        User.find(session[:user_id])
+        # only looks for the user if it's not already populated
+        # if it is populated, returns the cached result
+        # Otherwise looks for the user
+        # this is called memoization
+        @current_user ||= User.find(session[:user_id])
       end
 
       def unique_em?(email)
