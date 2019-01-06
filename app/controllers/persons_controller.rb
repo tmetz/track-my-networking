@@ -1,6 +1,17 @@
 class PersonsController < ApplicationController
 
     get '/persons' do
-        erb :'/persons/index'
+        if logged_in?
+            @user = User.find_by_slug(params[:slug])
+            if current_user == @user # don't want a user to be able to see another user's activity
+              @persons = Person.where(["user_id = ?", @user.id])
+              erb :'/persons/index'
+            else
+              redirect '/login'
+            end
+          else 
+            redirect '/login'
+          end
+        end
     end
 end
