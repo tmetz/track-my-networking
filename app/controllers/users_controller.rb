@@ -9,8 +9,8 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-      if !params[:email].empty? && !params[:password].empty? && unique_em?(params[:email])
-        @user = User.create(email: params[:email], password: params[:password])
+      if !params[:email].empty? && !params[:password].empty? && !params[:name].empty? && unique_em?(params[:email])
+        @user = User.create(name: params[:name], email: params[:email], password: params[:password])
         session[:user_id] = @user.id
         redirect "/persons"
       else
