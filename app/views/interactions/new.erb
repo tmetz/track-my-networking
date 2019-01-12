@@ -1,11 +1,10 @@
 <h1>Log a new interaction</h1>
 
 <form action="/interactions" method="POST">
-  <label>Name:</label>
-
+  <label for="notes">Notes about interaction:</label>
   <br>
-
-  <input type="text" name="interaction[notes]" id="notes">
+  <textarea name="interaction[notes]" id="notes">
+  </textarea>
 
   <br>
 
@@ -24,9 +23,28 @@
 
     <label>and/or, create a new connection:</label>
     <br>
-    <label>Name:</label>
-      <input  type="text" name="person[name]" id="Connection's Name"></input>
+    <label for="name">Connection's Name:</label>
+      <input  type="text" name="person[name]" id="name"></input>
     <br>
+    <label for="company_name">Company Name:</label>
+    <input  type="text" name="person[company_name]" id="company_name"></input>
+    <br>
+    <label for="subjects">Relevant Subjects (e.g. Java, Python, Linux):</label>
+    <input  type="text" name="person[subjects]" id="subjects"></input>
+    <br>
+    <label for="meeting_place">Where did you meet:</label>
+    <input  type="text" name="person[meeting_place]" id="meeting_place"></input>
+    <br>
+    <label for="linkedin">LinkedIn URL:</label>
+    <input  type="text" name="person[linkedin]" id="linkedin"></input>
+    <br>
+    <label for="email">E-mail:</label>
+    <input  type="text" name="person[email]" id="email"></input>
+    <br>
+    <label for="phone">Phone Number:</label>
+    <input  type="text" name="person[phone]" id="phone"></input>
+  <br>
+  <br>
 
   <input type="submit" value="Log Interaction">
 </form>
