@@ -1,0 +1,13 @@
+<div>
+    <%= @interaction.person.name %><br>
+    <%= @interaction.person.company_name %><br>
+    <%= @interaction.person.subjects %><br>
+    You met at: <%= @interaction.person.meeting_place %>
+    <a href = "<%= @interaction.person.linkedin %>">LinkedIn</a><br>
+    <a href = "mailto:<%= @interaction.person.email %>"><%= @interaction.person.email %></a><br>
+    <%= @interaction.person.phone %>
+    <% @interaction.person.interactions.each do |interaction| %>
+        Interaction date: <%= interaction.date %><br>
+        Interaction note: <%= interaction.notes %><br>
+    <% end %>
+</div>

@@ -50,7 +50,6 @@ class UsersController < ApplicationController
         if logged_in?
           @user = User.find_by_id(params[:id])
           if current_user == @user # don't want a user to be able to see another user's activity
-            @persons = Person.where(["user_id = ?", @user.id])
             erb :'/users/show'
           else
             redirect '/login'
