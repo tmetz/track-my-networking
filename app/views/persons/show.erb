@@ -6,9 +6,9 @@
     <strong>LinkedIn:</strong> <a href = "<%= @person.linkedin %>"><%= @person.linkedin %></a><br>
     <strong>E-mail:</strong> <a href = "mailto:<%= @person.email %>"><%= @person.email %></a><br>
     <strong>Phone:</strong> <%= @person.phone %><br><br>
-    <strong>Interactions:</strong> <br>
+    <strong>Interactions with <%= @user.name %>:</strong> <br>
     <ul>
-    <% @person.interactions.each do |interaction| %>
+    <% @interactions.each do |interaction| %>
         <li><span style = "color: #254f34"><strong>On <%= interaction.date %>: </strong></span>
         <%= interaction.notes %>
         </li>
