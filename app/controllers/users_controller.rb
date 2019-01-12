@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     get "/login" do
         if logged_in?
-            redirect "/users/#{current_user.slug}"
+            redirect "/users/#{current_user.id}"
         else
             erb :"/users/login"
         end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         user = User.find_by(:email => params[:email])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect "/users/#{user.slug}"
+            redirect "/users/#{user.id}"
         else
             redirect "/failure"
         end
@@ -46,9 +46,9 @@ class UsersController < ApplicationController
     end
 
 
-    get "/users/:slug" do
+    get "/users/:id" do
         if logged_in?
-          @user = User.find_by_slug(params[:slug])
+          @user = User.find_by_id(params[:id])
           if current_user == @user # don't want a user to be able to see another user's activity
             @persons = Person.where(["user_id = ?", @user.id])
             erb :'/users/show'
