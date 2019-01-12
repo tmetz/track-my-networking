@@ -50,6 +50,17 @@ class InteractionsController < ApplicationController
         end
     end
 
+    get '/interactions/:id/edit' do
+        if logged_in?
+            @user = current_user
+            @interaction = Interaction.find_by_id(params[:id])
+            @people = @user.persons.uniq
+            erb :'/interactions/edit'
+        else
+            redirect '/login'
+        end
+    end
+
     patch '/interactions/:id' do
         @interaction = Interaction.find_by_id(params[:id])
         int_date = Interaction.create_formatted_date(params[:interaction][:year], params[:interaction][:month], params[:interaction][:day])

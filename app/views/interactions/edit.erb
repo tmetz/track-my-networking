@@ -1,0 +1,78 @@
+<h1>Log a new interaction</h1>
+
+<form action="/interactions/<%= @interaction.id %>" method="POST">
+    <input type = "hidden" name = "_method" value = "patch">
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name = "interaction[year]" id = "year" value = "<%= @interaction.year %>"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name = "interaction[month]" id = "month" value = "<%= @interaction.month %>"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name = "interaction[day]" id = "day" value = "<%= @interaction.day %>"></input>
+        </div>
+    </div>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <textarea class = "form-control" name="interaction[notes]" id="notes"><%= @interaction.notes %></textarea>
+        </div>
+    </div>
+
+  <br>
+    <label>Choose an existing professional connection:</label><br>
+    
+        <% @people.each do |person| %>
+            <div class = "form-check">
+                <input class="form-check-input" type="radio" name="interaction[person_id]" id="<%=person.name%>" value="<%=person.id%>">
+                <label class="form-check-label" for="<%=person.name%>">
+                    <%= person.name %>
+                </label>
+            </div>
+        <% end %>
+
+  <br>
+
+
+
+    <label>or, create a new connection:</label>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[name]" id="name" placeholder = "Connection's Name"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[company_name]" id="company_name" placeholder = "Company Name"></input>
+        </div>
+    </div>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[subjects]" id="subjects" placeholder = "Relevant Subjects (e.g. Java, Python, Linux)"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[meeting_place]" id="meeting_place" placeholder = "Where did you meet?"></input>
+        </div>
+    </div>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[email]" id="email" placeholder = "email@address.com"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[phone]" id="phone" placeholder = "555-555-5555"></input>
+        </div>
+    </div>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[linkedin]" id="linkedin" placeholder = "LinkedIn URL"></input>
+        </div>
+    </div>
+
+  <br>
+  <br>
+
+  <input type="submit" value="Update Interaction">
+</form>
