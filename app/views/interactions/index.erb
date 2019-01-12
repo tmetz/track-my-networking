@@ -1,0 +1,21 @@
+<div class = "row">
+    <div class = "col-sm-12">
+        <p style = "text-align: center;">Interactions you have had</p>
+    </div>
+</div>
+
+
+<% @user.interactions.each do |interaction| %>
+
+            <div class = "row">
+                <div class = "col-sm-2" style = "color:#6d4e3b;"><%= interaction.date %></div>
+                <div class = "col-sm-3"><%= interaction.person.name %></div>
+                <div class = "col-sm-3"><%= interaction.person.company_name %></div>
+                <div class = "col-sm-4">
+                <a href = "/interactions/<%= interaction.id %>">
+                    <%= interaction.notes %>
+                </a>
+                </div>
+            </div>
+
+<% end %>
