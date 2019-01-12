@@ -1,4 +1,5 @@
 <div>
+    <%= flash[:message] %><br><br>
     <strong>Name:</strong> <%= @person.name %><br>
     <strong>Company Name:</strong> <%= @person.company_name %><br>
     <strong>Relevant Subjects:</strong> <%= @person.subjects %><br>
@@ -15,4 +16,5 @@
     <% end %>
     </ul>
     <br><br>
+    <a href = "/persons/<%= @person.id %>/edit">Update this contact</a>
 </div>

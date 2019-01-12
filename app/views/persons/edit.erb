@@ -1,0 +1,41 @@
+<h1>Edit a professional contact</h1>
+
+<form action="/persons/<%= @person.id %>" method="POST">
+    <input type = "hidden" name = "_method" value = "patch">
+
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[name]" id="name" value = "<%= @person.name %>" placeholder = "Name"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[company_name]" id="company_name" value = "<%= @person.company_name %>" placeholder = "Company"></input>
+        </div>
+    </div>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[subjects]" id="subjects" value = "<%= @person.subjects %>" placeholder = "Subjects (e.g. Java, Python)"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[meeting_place]" id="meeting_place" value = "<%= @person.meeting_place %>" placeholder = "Where did you meet?"></input>
+        </div>
+    </div>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[email]" id="email" value = "<%= @person.email %>" placeholder = "E-mail"></input>
+        </div>
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[phone]" id="phone" value = "<%= @person.phone %>" placeholder = "Phone"></input>
+        </div>
+    </div>
+    <br>
+    <div class = "form-row">
+        <div class = "col">
+            <input type = "text" class = "form-control" name="person[linkedin]" id="linkedin" value = "<%= @person.linkedin %>" placeholder = "LinkedIn URL"></input>
+        </div>
+    </div>
+    <br><br>
+    <input type="submit" value="Update professional contact">
+
+</form>
