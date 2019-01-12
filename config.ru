@@ -9,4 +9,5 @@ use Rack::MethodOverride
 # use other controllers here...
 use UsersController
 use PersonsController
+use InteractionsController
 run ApplicationController

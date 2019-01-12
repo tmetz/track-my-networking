@@ -13,4 +13,5 @@ class PersonsController < ApplicationController
             redirect '/login'
         end
     end
+
 end
