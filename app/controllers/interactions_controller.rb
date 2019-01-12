@@ -50,4 +50,25 @@ class InteractionsController < ApplicationController
         end
     end
 
+    patch '/interactions/:id' do
+        @interaction = Interaction.find_by_id(params[:id])
+        int_date = Interaction.create_formatted_date(params[:interaction][:year], params[:interaction][:month], params[:interaction][:day])
+        if @interaction.date != int_date
+            @interaction.date = int_date
+        end
+        if params[:person][:name].empty?
+            if @interaction.person_id != params[:interaction][:person_id]
+                @interaction.person = Person.find_by_id(params[:interaction][:person_id])
+            end
+        else
+            @interaction.person = Person.create(params[:person])    
+        end
+        if @interaction.notes != params[:interaction][:notes]
+            @interaction.notes = params[:interaction][:notes]
+        end
+        @interaction.save
+        flash[:message] = "Successfully updated interaction."
+        redirect to ("/interactions/#{@interaction.id}")
+    end
+
 end
