@@ -6,7 +6,8 @@
 <% @persons.uniq.each do |person| %>
 <div class = "row">
     <div class = "col-sm-3"><a style = "color:#6d4e3b;" href = "/persons/<%= person.id %>"><%= person.name %></a></div>
-    <div class = "col-sm-9"><%= person.phone %></div>
+    <div class = "col-sm-5"><%= person.company_name %></div>
+    <div class = "col-sm-4"><%= person.phone %></div>
 </div>
 <% end %>
 

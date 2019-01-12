@@ -1,13 +1,18 @@
 <div>
-    <%= @interaction.person.name %><br>
-    <%= @interaction.person.company_name %><br>
-    <%= @interaction.person.subjects %><br>
-    You met at: <%= @interaction.person.meeting_place %>
-    <a href = "<%= @interaction.person.linkedin %>">LinkedIn</a><br>
-    <a href = "mailto:<%= @interaction.person.email %>"><%= @interaction.person.email %></a><br>
-    <%= @interaction.person.phone %>
-    <% @interaction.person.interactions.each do |interaction| %>
-        Interaction date: <%= interaction.date %><br>
-        Interaction note: <%= interaction.notes %><br>
+    <strong>Name:</strong> <%= @person.name %><br>
+    <strong>Company Name:</strong> <%= @person.company_name %><br>
+    <strong>Relevant Subjects:</strong> <%= @person.subjects %><br>
+    <strong>You met at:</strong> <%= @person.meeting_place %><br>
+    <strong>LinkedIn:</strong> <a href = "<%= @person.linkedin %>"><%= @person.linkedin %></a><br>
+    <strong>E-mail:</strong> <a href = "mailto:<%= @person.email %>"><%= @person.email %></a><br>
+    <strong>Phone:</strong> <%= @person.phone %><br><br>
+    <strong>Interactions:</strong> <br>
+    <ul>
+    <% @person.interactions.each do |interaction| %>
+        <li><span style = "color: #254f34"><strong>On <%= interaction.date %>: </strong></span>
+        <%= interaction.notes %>
+        </li>
     <% end %>
+    </ul>
+    <br><br>
 </div>

@@ -14,4 +14,13 @@ class PersonsController < ApplicationController
         end
     end
 
+    get "/persons/:id" do
+        if logged_in?
+            @person = Person.find_by_id(params[:id])
+            erb :'/persons/show'
+        else
+            redirect '/login'
+        end
+    end
+
 end
