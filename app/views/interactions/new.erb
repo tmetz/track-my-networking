@@ -1,0 +1,32 @@
+<h1>Log a new interaction</h1>
+
+<form action="/interactions" method="POST">
+  <label>Name:</label>
+
+  <br>
+
+  <input type="text" name="interaction[notes]" id="notes">
+
+  <br>
+
+  <label>Choose an existing professional connection:</label>
+
+  <br>
+
+  <% @people.each do |person| %>
+    <input type="radio" name="interaction[person_id]" value="<%=person.id%>" id="<%=person.name%>">
+    <%= person.name %></input>
+  <% end %>
+
+  <br>
+
+
+
+    <label>and/or, create a new connection:</label>
+    <br>
+    <label>Name:</label>
+      <input  type="text" name="person[name]" id="Connection's Name"></input>
+    <br>
+
+  <input type="submit" value="Log Interaction">
+</form>
