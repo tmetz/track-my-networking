@@ -3,7 +3,7 @@ class PersonsController < ApplicationController
     get '/persons' do
         if logged_in?
             @user = current_user
-            @persons = @user.persons
+            @persons = @user.persons.uniq
             erb :'/persons/index'
         else 
             redirect '/login'
@@ -13,7 +13,7 @@ class PersonsController < ApplicationController
     get "/persons/recent" do
         if logged_in?
             @user = current_user
-            @persons = @user.persons.where("updated_at > ?", 7.days.ago)
+            @persons = @user.persons.where("updated_at > ?", 7.days.ago).uniq
             erb :'/persons/index'
         else
             redirect '/login'
