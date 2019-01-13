@@ -11,7 +11,10 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'bootstrap', '~> 4.2.1'
-gem 'pg'
+
+group :production do
+  gem 'pg'
+end
 
 group :test do
   gem 'rspec'
