@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
     get '/signup' do
       if logged_in?
-        redirect '/persons'
+        @user = current_user
+        redirect "/users/#{@user.id}"
       else
         erb :'users/signup'
       end
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
       if !params[:email].empty? && !params[:password].empty? && !params[:name].empty? && unique_em?(params[:email])
         @user = User.create(name: params[:name], email: params[:email], password: params[:password])
         session[:user_id] = @user.id
-        redirect "/persons"
+        redirect "/users/#{@user.id}"
       else
         if !unique_em?(params[:email])
           flash[:message] = "That email address is already in use."
