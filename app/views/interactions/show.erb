@@ -3,10 +3,10 @@
     <strong>Professional Connection:</strong> <%= @interaction.person.name %><br>
     <strong>Notes:</strong> <%= @interaction.notes %><br>
     <br>
-    <a href = "/interactions/<%= @interaction.id %>/edit">Edit/Update this interaction</a><br><br>
 
     <form method="POST" action="/interactions/<%= @interaction.id %>/delete">
         <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <a class="btn btn-outline-dark" href = "/interactions/<%= @interaction.id %>/edit" role = "button">Edit/Update this interaction</a>
         <input type="submit" value="Delete Interaction" class="btn btn-outline-dark">
     </form>
 </div>
