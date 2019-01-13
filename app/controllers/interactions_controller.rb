@@ -39,6 +39,7 @@ class InteractionsController < ApplicationController
             elsif !params[:interaction][:person_id].empty?
                 @interaction.person = Person.find_by_id(params[:interaction][:person_id])
             else
+                @interaction.delete
                 flash[:message] = "You must associate your interaction with a professional contact."
                 redirect '/failure'
             end
