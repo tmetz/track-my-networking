@@ -13,7 +13,7 @@ gem 'bcrypt'
 gem 'bootstrap', '~> 4.2.1'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.21'
 end
 
 group :test do

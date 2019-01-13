@@ -71,7 +71,7 @@ GEM
     minitest (5.11.3)
     nokogiri (1.10.0)
       mini_portile2 (~> 2.4.0)
-    pg (1.1.4)
+    pg (0.21.0)
     popper_js (1.14.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -159,7 +159,7 @@ DEPENDENCIES
   bootstrap (~> 4.2.1)
   capybara
   database_cleaner!
-  pg
+  pg (~> 0.21)
   pry
   rack-test
   rake
