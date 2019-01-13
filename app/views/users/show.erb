@@ -2,3 +2,6 @@
 <h1>Welcome, <%= @user.name %></h1>
 
 <h3>You have interacted <%= @user.interactions.count %> times with <%= @user.persons.uniq.count %> different people!</h3>
+<a class="btn btn-outline-dark" href = "/interactions/new" role = "button">Log Interaction</a>
+<a class="btn btn-outline-secondary" href = "/interactions" role = "button">View Interactions</a>
+<a class="btn btn-outline-secondary" href = "/persons" role = "button">View Connections</a>
