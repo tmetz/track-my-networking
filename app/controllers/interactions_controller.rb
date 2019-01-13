@@ -71,12 +71,13 @@ class InteractionsController < ApplicationController
         if @interaction.date != int_date
             @interaction.date = int_date
         end
-        if params[:person][:name].empty?  && !params[:interaction][:person_id].empty?
-            if @interaction.person_id != params[:interaction][:person_id]
-                @interaction.person = Person.find_by_id(params[:interaction][:person_id])
-            end
+        if !params[:person][:name].empty?
+            @interaction.person = Person.create(params[:person])
+        elsif !params[:interaction][:person_id].empty?
+            @interaction.person = Person.find_by_id(params[:interaction][:person_id])
         else
-            @interaction.person = Person.create(params[:person])    
+            flash[:message] = "You must associate your interaction with a professional contact."
+            redirect '/failure'
         end
         if @interaction.notes != params[:interaction][:notes]
             @interaction.notes = params[:interaction][:notes]
