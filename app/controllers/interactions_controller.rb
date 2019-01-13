@@ -82,4 +82,15 @@ class InteractionsController < ApplicationController
         redirect to ("/interactions/#{@interaction.id}")
     end
 
+    delete '/interactions/:id/delete' do
+        @interaction = Interaction.find_by_id(params[:id])
+        if logged_in? && current_user.interactions.include?(@interaction)
+            @interaction.delete
+            flash[:message] = "Successfully deleted interaction."
+            redirect to '/interactions'
+        else
+          redirect to ("/login")
+        end
+    end
+
 end

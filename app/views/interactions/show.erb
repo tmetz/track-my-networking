@@ -4,4 +4,9 @@
     <strong>Notes:</strong> <%= @interaction.notes %><br>
     <br>
     <a href = "/interactions/<%= @interaction.id %>/edit">Edit/Update this interaction</a>
+
+    <form method="POST" action="/interactions/<%= @interaction.id %>/delete">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Interaction">
+    </form>
 </div>
