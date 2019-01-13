@@ -2,10 +2,10 @@
 
 Specs:
 - [x] Use Sinatra to build the app
-*App is built with Sinatra
+####App is built with Sinatra
 
 - [x] Use ActiveRecord for storing information in a database
-*Migrations have been created and run
+####Migrations have been created and run
 
 - [x] Include more than one model class (e.g. User, Post, Category)
 Modes: User, Person (meaning professional connection), Interaction
