@@ -79,4 +79,15 @@ class PersonsController < ApplicationController
         redirect to ("/persons/#{@person.id}")
     end
 
+    delete '/persons/:id/delete' do
+        @person = Person.find_by_id(params[:id])
+        if logged_in? && current_user.persons.include?(@person)
+            @person.delete
+            flash[:message] = "Successfully deleted #{@person.name}"
+            redirect to '/persons'
+        else
+          redirect to ("/login")
+        end
+    end
+
 end

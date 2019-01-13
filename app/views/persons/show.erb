@@ -16,4 +16,9 @@
     </ul>
     <br><br>
     <a href = "/persons/<%= @person.id %>/edit">Update this contact</a>
+    <br><br>
+    <form method="POST" action="/persons/<%= @person.id %>/delete">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Contact">
+    </form>
 </div>
