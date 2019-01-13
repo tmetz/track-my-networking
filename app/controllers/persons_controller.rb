@@ -10,6 +10,16 @@ class PersonsController < ApplicationController
         end
     end
 
+    get "/persons/recent" do
+        if logged_in?
+            @user = current_user
+            @persons = @user.persons.where("updated_at > ?", 7.days.ago)
+            erb :'/persons/index'
+        else
+            redirect '/login'
+        end
+    end
+
     get "/persons/:id" do
         if logged_in?
             @user = current_user
