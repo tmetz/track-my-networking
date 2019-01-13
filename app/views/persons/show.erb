@@ -9,7 +9,7 @@
     <strong>Interactions with <%= @user.name %>:</strong> <br>
     <ul>
     <% @interactions.each do |interaction| %>
-        <li><span style = "color: #254f34"><strong>On <%= interaction.date %>: </strong></span>
+        <li><a style = "color: #254f34" href = "/interactions/<%= interaction.id %>"><strong>On <%= interaction.date %>: </a>
         <%= interaction.notes %>
         </li>
     <% end %>
