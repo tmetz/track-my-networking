@@ -14,7 +14,16 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect "/persons"
       else
-        redirect "/signup"
+        if !unique_em?(params[:email])
+          flash[:message] = "That email address is already in use."
+          redirect "/signup"
+        elsif params[:email].empty?
+          flash[:message] = "You must enter an email address."
+          redirect "/signup"
+        else
+          flash[:message] = "You must enter a password."
+          redirect "/signup"
+        end
       end
     end
 
@@ -32,6 +41,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect "/users/#{user.id}"
         else
+          flash[:message] = "Username and password combination was not found."
             redirect "/failure"
         end
     end
@@ -41,6 +51,7 @@ class UsersController < ApplicationController
         session.clear
         redirect '/login'
       else
+        flash[:message] = "You are already logged out."
         redirect '/failure'
       end
     end
@@ -52,7 +63,8 @@ class UsersController < ApplicationController
           if current_user == @user # don't want a user to be able to see another user's activity
             erb :'/users/show'
           else
-            redirect '/login'
+            flash[:message] = "You are not logged in as this user.  Please log in."
+            redirect '/failure'
           end
         else 
           redirect '/login'
