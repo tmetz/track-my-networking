@@ -1,7 +1,10 @@
 <div class = "row">
-    <div class = "col-sm-12"><p style = "text-align: center;">Professional Connections</p></div>
+    <div class = "col-sm-12"><h2 style = "text-align: center;">Professional Connections</h2></div>
 </div>
 
+<% if @persons.count == 0 %>
+<p>You do not have any professional connections yet.  Log an interaction to create a new conection.</p>
+<% end %>
 
 <% @persons.each do |person| %>
 <div class = "row">
@@ -11,3 +14,5 @@
     <div class = "col-sm-2"><%= person.phone %></div>
 </div>
 <% end %>
+
+<a class="btn btn-outline-dark" href = "/interactions/new" role = "button">New Interaction</a>
