@@ -22,6 +22,7 @@ class InteractionsController < ApplicationController
             if @interaction.user_id == @user.id
                 erb :'/interactions/show'
             else
+                flash[:message] = "That interaction belongs to another user"
                 redirect '/failure'
             end
         else
