@@ -36,8 +36,10 @@ class InteractionsController < ApplicationController
             @interaction = Interaction.create(:date => int_date, :user_id => current_user.id)
             if params[:interaction][:person_id] == 0
                 @interaction.person = Person.create(params[:person])
+                @interaction.person = Person.find_by_id(1)
             elsif !params[:interaction][:person_id].empty?
                 @interaction.person = Person.find_by_id(params[:interaction][:person_id])
+                @interaction.person = Person.find_by_id(2)
             else
                 @interaction.delete
                 flash[:message] = "You must associate your interaction with a professional contact."
