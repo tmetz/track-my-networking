@@ -74,7 +74,7 @@ class InteractionsController < ApplicationController
         end
         if params[:interaction][:person_id] == "0"
             @interaction.person = Person.create(params[:person])
-        elsif !params[:interaction][:person_id].empty?
+        elsif !params[:interaction][:person_id].empty? && params[:interaction][:person_id] != nil
             @interaction.person = Person.find_by_id(params[:interaction][:person_id])
         else
             flash[:message] = "You must associate your interaction with a professional contact."
