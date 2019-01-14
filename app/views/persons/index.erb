@@ -3,16 +3,32 @@
 </div>
 
 <% if @persons.count == 0 %>
-<p>You do not have any professional connections yet.  Log an interaction to create a new conection.</p>
-<% end %>
-
-<% @persons.each do |person| %>
-<div class = "row">
-    <div class = "col-sm-3"><a style = "color:#6d4e3b;" href = "/persons/<%= person.id %>"><%= person.name %></a></div>
-    <div class = "col-sm-3"><%= person.company_name %></div>
-    <div class = "col-sm-4"><a href = "mailto: <%= person.email %>"><%= person.email %></a></div>
-    <div class = "col-sm-2"><%= person.phone %></div>
-</div>
+    <p>You do not have any professional connections yet.  Log an interaction to create a new conection.</p>
+<% else %>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Company</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @persons.each do |person| %>
+                <tr>
+                    <td><a style = "color:#6d4e3b;" href = "/persons/<%= person.id %>"><%= person.name %></a></td>
+                    <td><%= person.company_name %></td>
+                    <td><a href = "mailto: <%= person.email %>"><%= person.email %></a></td>
+                    <td><%= person.phone %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 <% end %>
 
 <a class="btn btn-outline-dark" href = "/interactions/new" role = "button">New Interaction</a>
+
+
+
+
