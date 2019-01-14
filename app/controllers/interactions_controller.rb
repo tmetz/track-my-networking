@@ -34,7 +34,7 @@ class InteractionsController < ApplicationController
         if (!params[:interaction][:year].empty? && !params[:interaction][:month].empty?)
             int_date = Interaction.create_formatted_date(params[:interaction][:year], params[:interaction][:month], params[:interaction][:day])
             @interaction = Interaction.create(:date => int_date, :user_id => current_user.id)
-            if params[:interaction][:person_id] == 0
+            if params[:interaction][:person_id] == "0"
                 @interaction.person = Person.create(params[:person])
                 @interaction.person = Person.find_by_id(1)
             elsif !params[:interaction][:person_id].empty?
