@@ -1,12 +1,15 @@
 <h3>Login</h3>
 <form action="/login" method="POST">
-  <label for="email">E-mail: </label>
-  <input type="text" name="email" placeholder="Email:">
-  <br>
+    <div class = "form-group">
+      <label for="email">E-mail: </label>
+      <input type="text" class = "form-control" name="email" placeholder="Email:"></input>
+    </div>
+    <div class = "form-group">
+      <label for="password">Password: </label>
+      <input type="password" name="password" placeholder="Password:">
+    </div>
 
-  <label for="password">Password: </label>
-  <input type="password" name="password" placeholder="Password:">
   <br>
-  
   <input type="submit" value="Log In" class="btn btn-outline-dark">
 </form>
+
