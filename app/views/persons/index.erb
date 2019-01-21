@@ -3,7 +3,11 @@
 </div>
 
 <% if @persons.count == 0 %>
-    <p>You do not have any professional connections yet.  Log an interaction to create a new conection.</p>
+    <% if @from_recent == 1 %>
+        <p>You have not added any professional connections recently.  Log an interaction to create a new connection.</p>
+    <% else %>
+        <p>You do not have any professional connections yet.  Log an interaction to create a new conection.</p>
+    <% end %>
 <% else %>
     <table class="table">
         <thead class="thead-dark">
