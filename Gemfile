@@ -10,7 +10,8 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
-gem 'bootstrap', '~> 4.2.1'
+#gem 'bootstrap', '~> 4.2.1'
+gem "bootstrap", ">= 4.3.1"
 
 group :production do
   gem 'pg', '~> 0.21'
