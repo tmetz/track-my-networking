@@ -19,10 +19,6 @@ $ shotgun
 
 Navigate to the URL displayed in the Sinatra server message
 
-## Usage
-
-Run ./bin/tribalcollege and then follow the menu prompts.
-
 
 ## Contributing
 
