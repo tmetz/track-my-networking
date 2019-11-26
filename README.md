@@ -1,7 +1,7 @@
 
 # Track My Networking
 
-This web application allows users to create an account that will track all networking interactions they have with people they meet at job fairs, meetups, etc. so that a user can later review their notes and information about people they have met.
+This web application allows users to create an account and track all networking interactions they have with people they meet at job fairs, meetups, etc. so that a user can later review their notes and information about people they have met.
 
 ## Installation
 
